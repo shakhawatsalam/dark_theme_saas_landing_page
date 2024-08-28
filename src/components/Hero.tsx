@@ -1,7 +1,9 @@
+"use client";
 import ArrowWIcon from "@/assets/icons/arrow-w.svg";
 import cursorImage from "@/assets/images/cursor.png";
 import messageImage from "@/assets/images/message.png";
 import Image from "next/image";
+import { motion } from "framer-motion";
 export const Hero = () => {
   return (
     <div className='bg-black text-white bg-[linear-gradient(to_bottom,#000,#200D42_34%,#A46EDB_82%)] py-[72px]  sm:py-24 relative overflow-clip'>
@@ -25,20 +27,32 @@ export const Hero = () => {
             <h1 className='text-7xl sm:text-9xl font-bold tracking-tighter text-center inline-flex'>
               One Task <br /> at a Time
             </h1>
-            <Image
-              src={cursorImage}
-              alt='cursor Image'
-              height='200'
-              width='200'
-              className='absolute right-[476px] top-[108px] hidden sm:inline'
-            />
-            <Image
-              src={messageImage}
-              alt='cursor Image'
-              height='200'
-              width='200'
-              className='absolute left-[498px] top-[56px] hidden sm:inline'
-            />
+            <motion.div
+              drag
+              dragSnapToOrigin
+              className='absolute right-[476px] top-[108px] hidden sm:inline'>
+              <Image
+                src={cursorImage}
+                alt='cursor Image'
+                height='200'
+                width='200'
+                className='max-w-none cursor-pointer'
+                draggable='false'
+              />
+            </motion.div>
+            <motion.div
+              drag
+              dragSnapToOrigin
+              className='absolute left-[498px] top-[56px] hidden sm:inline'>
+              <Image
+                src={messageImage}
+                alt='cursor Image'
+                height='200'
+                width='200'
+                className='max-w-none cursor-pointer'
+                draggable='false'
+              />
+            </motion.div>
           </div>
         </div>
         <p className='text-center text-xl mt-8 max-w-md mx-auto'>
